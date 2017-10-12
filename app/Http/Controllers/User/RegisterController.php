@@ -40,6 +40,7 @@ class RegisterController extends Controller
 
         	if($user->save())
         	{
+                flash('Data has successfully been added')->success();
         		return redirect(route('home'));
         	}
     	
