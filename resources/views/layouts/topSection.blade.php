@@ -207,14 +207,14 @@
         </div>
         <div class="header-right">
             <div class="user">
-                    @if(Auth::guard('user')->user())
+                    @if(Auth::guard('user')->user() )
                         <a href="{{route('user.profile')}}">My account</a>
                         <a href="#"
                            onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">Logout</a>
                         <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}</form>
-                    @elseif(Auth::guard('user')->user())
+                    @elseif(Auth::guard('admin')->user())
                         <a href="{{route('admin.dashboard')}}">Admin</a>
                         <a href="#"
                                onclick="event.preventDefault();
