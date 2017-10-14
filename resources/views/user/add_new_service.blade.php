@@ -29,7 +29,7 @@
                 	{{ csrf_field() }}
                     <div class="account-block">
                         <div class="add-title-tab">
-                            <h3>Property description and price</h3>
+                            <h3>Service description and title</h3>
                             <div class="add-expand"></div>
                         </div>
                         <div class="add-tab-content">
@@ -49,6 +49,12 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                            <div class="add-title-tab">
+                                <h3>Categories</h3>
+                                <div class="add-expand"></div>
+                            </div>
+                        <div class="add-tab-content">
                              <div class="add-tab-row push-padding-bottom">
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -86,6 +92,12 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="add-title-tab">
+                            <h3>Location/Address</h3>
+                            <div class="add-expand"></div>
+                        </div>
+                        <div class="add-tab-content">
                             <div class="add-tab-row push-padding-bottom">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -125,6 +137,7 @@
                                 </div>
                             </div>
                         </div>
+
                        
                     </div>
                     

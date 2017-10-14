@@ -74,8 +74,18 @@ Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallb
 	//login routes
 Route::get('/admin', 'Admin\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin','Admin\AdminLoginController@login')->name('admin.login.submit');
+Route::post('/admin/logout','Admin\AdminLoginController@logout')->name('admin.logout');
 
 	//dashboard routes
-Route::get('/admin/dashboard','Admin\AdminDashboard@index')->name('admin.dashboard');
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('/admin/dashboard', 'Admin\AdminDashboard@index')->name('admin.dashboard');
+    Route::get('/admin/users', 'Admin\AdminUsersController@getAllUsers')->name('admin.user.list');
+    Route::get('/admin/users/{id}', 'Admin\AdminUsersController@showUser')->name('admin.user');
+    Route::get('/admin/users/{id}/edit', 'Admin\AdminUsersController@editUser')->name('admin.user.edit.form');
+    Route::post('/admin/users/save', 'Admin\AdminUsersController@save')->name('admin.user.edit.submit');
+    Route::get('/admin/users/{id}/delete', 'Admin\AdminUsersController@delete')->name('admin.user.delete');
+    Route::post('/admin/users/delete', 'Admin\AdminUsersController@destroy')->name('admin.user.destroy');
+});
+
 
 
