@@ -35,5 +35,9 @@ class Service extends Model
         return $this->belongsToMany('App\User','archiveds');
     }
 
+    public function images(){
+        return $this->hasMany('App\ServiceImage');
+    }
+
 
 }

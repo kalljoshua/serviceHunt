@@ -127,8 +127,6 @@
 
       @include('layouts.resetPassword')
 
-      @include('flash::message')
-
       @yield('content')
 
       <!--start footer section-->

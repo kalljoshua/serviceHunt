@@ -17,6 +17,8 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('type_id');
+            $table->integer('company_id');
+            $table->integer('sub_category_id');
             $table->integer('package_id');
             $table->string('title');
             $table->string('description',10000);
@@ -31,6 +33,7 @@ class CreateServicesTable extends Migration
             $table->integer('suspended')->default(0);
             $table->integer('featured')->default(0);
             $table->smallInteger('active')->default(0);
+            $table->smallInteger('expired')->default(0);
             $table->timestamps();
         });
     }

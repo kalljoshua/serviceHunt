@@ -1,4 +1,4 @@
- 
+
 @extends('...layouts.adminLayout')
 @section('title')
   <title>Service Hunt Admin : Dashboard</title>
@@ -20,6 +20,7 @@
 
     <!-- Main content -->
     <section class="content">
+      @include('flash::message')
       <!-- Info boxes -->
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
