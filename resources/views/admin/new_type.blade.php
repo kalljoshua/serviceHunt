@@ -1,6 +1,6 @@
 @extends('layouts.adminLayout')
 @section('title')
-    <title>Service Hunt Admin : Users</title>
+    <title>Service Hunt Admin : Types</title>
 @endsection
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -42,7 +42,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-info pull-right">Sign in</button>
+                            <button type="submit" class="btn btn-info pull-right">Submit</button>
                         </div>
                         <!-- /.box-footer -->
                     </form>

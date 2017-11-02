@@ -50,7 +50,7 @@
           <div class="item-list">
             <div class="col-sm-2 no-padding photobox">
               <div class="add-image">
-                <a href="category.html#"><img src="/client_inc/assets//img/item/img-1.jpg" alt=""></a>
+                <a href="/services/{{$service->id}}/details"><img src="/client_inc/assets//img/item/img-1.jpg" alt=""></a>
                 <span class="photo-count"><i class="fa fa-camera"></i>2</span>
               </div>
             </div>
@@ -66,7 +66,7 @@
                   <span class="item-location"><i class="fa fa-map-marker"></i>{{$service->district}}</span>
                 </div>
                 <div class="item_desc">
-                  <a href="category.html#">
+                  <a href="/services/{{$service->id}}/details">
                     {{ str_limit($service->description, $limit = 70, $end = '...') }}
                   </a>
                 </div>

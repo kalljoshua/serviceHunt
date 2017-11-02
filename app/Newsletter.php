@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Newsletter extends Model
 {
     //
-    /*
-    public function subscribers(){
-      return $this->belongsToMany('App\NewsLetterSubscriber','news_letter_logs');
-    }*/
+    public function newsLetters(){
+    return $this->belongsToMany('App\NewsLetterMail','news_letter_logs');
+  }
 }

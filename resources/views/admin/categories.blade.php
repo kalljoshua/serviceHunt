@@ -1,6 +1,6 @@
 @extends('layouts.adminLayout')
 @section('title')
-    <title>Service Hunt Admin : Services</title>
+    <title>ServiceHunt Admin : All-Categories</title>
 @endsection
 @section('content')
 
@@ -14,8 +14,8 @@
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Tables</a></li>
-      <li class="active">All Services</li>
+      <li><a href="#">Dashboard</a></li>
+      <li class="active">All Categories</li>
     </ol>
   </section>
 
@@ -26,7 +26,7 @@
       <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-              <h3 class="box-title">All available Services</h3>
+              <h3 class="box-title">All available Categories</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -34,33 +34,26 @@
                 <thead>
                 <tr>
                   <th>Date</th>
-                  <th>Title</th>
-                  <th>Owner</th>
-                  <th>SubCategory</th>
-                  <th>Status</th>
+                  <th>Name</th>
+                  <th>Sub-Categories</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($services as $service)
+                @foreach($categories as $category)
                 <tr>
-                  <td><span class="label label-info">{{$service->created_at->format('M-d-Y')}}</span></td>
-                  <td><img src="/admin_inc/dist/img/user2-160x160.jpg" class="img-circle" width="40"/>
-                    {{ str_limit($service->title, $limit = 40, $end = '...') }}
-                  </td>
-                  <td>{{$service->user->first_name}}</td>
-                  <td> {{$service->sub_category->name}}</td>
+                  <td><span class="label label-info">{{$category->created_at->format('M-d-Y')}}</span></td>
                   <td>
-                  @if($service->active==1)
-                  <a class="btn btn-primary btn-xs">Approved</a>
-                  @else
-                  <a class="btn btn-warning btn-xs">Pending</a>
-                  @endif
+                    {{$category->name}}
                   </td>
+                  <td>{{$category->sub_category->count()}}</td>
                   <td>
                     <div class="timeline-footer">
-                      <a class="btn btn-primary btn-xs">Edit</a>
-                      <a class="btn btn-danger btn-xs">Suspend</a>
+                      <a class="btn btn-info btn-xs">Edit</a>
+                      <a class="btn btn-danger btn-xs">Delete</a>
+                    </div>
+                    <div class="timeline-footer">
+
                     </div>
                   </td>
                 </tr>
@@ -69,10 +62,8 @@
                 <tfoot>
                 <tr>
                   <th>Date</th>
-                  <th>Title</th>
-                  <th>Owner</th>
-                  <th>SubCategory</th>
-                  <th>Status</th>
+                  <th>Name</th>
+                  <th>Sub-categories</th>
                   <th>Action</th>
                 </tr>
                 </tfoot>

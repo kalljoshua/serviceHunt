@@ -110,7 +110,6 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/users/{id}/delete', 'Admin\AdminUsersController@delete')->name('admin.user.delete');
     Route::post('/admin/users/delete', 'Admin\AdminUsersController@destroy')->name('admin.user.destroy');
 
-
     //servises routes
     Route::get('/admin/services', 'Admin\AdminServicesController@showAll')->name('admin.all.services');
     Route::get('/admin/suspended/services', 'Admin\AdminServicesController@suspended')->name('admin.suspended.services');
@@ -120,6 +119,22 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/types', 'Admin\AdminTypesController@showAll')->name('admin.all.types');
     Route::get('/admin/type/new', 'Admin\AdminTypesController@typeForm')->name('admin.new.type');
     Route::post('/admin/type', 'Admin\AdminTypesController@submitType')->name('admin.new.type.submit');
+
+    //Admin news letter routes
+    Route::get('/admin/news-letters','Admin\AdminNewsLetterController@createNewsLetter')->name('admin.create.news.letter.form');
+    Route::post('/admin/news-letters','Admin\AdminNewsLetterController@saveNewsLetter')->name('admin.create.news.letter.submit');
+    Route::get('/admin/subscribers','Admin\AdminNewsLetterSubscribersController@getSubscribers')->name('admin.subscribers.listings');
+
+    //Categories routes
+    Route::get('/admin/all-categories', 'Admin\AdminCategoriesController@showAll')->name('admin.all.categories');
+    Route::get('/admin/categories', 'Admin\AdminCategoriesController@categoriesForm')->name('admin.new.category');
+    Route::post('/admin/categories', 'Admin\AdminCategoriesController@submitCategory')->name('admin.new.category.submit');
+
+    //Sub-Categories routes
+    Route::get('/admin/all-Sub-categories', 'Admin\AdminSubCategoriesController@showAll')->name('admin.all.subcategories');
+    Route::get('/admin/sub-categories', 'Admin\AdminSubCategoriesController@subcategoriesForm')->name('admin.new.subcategory');
+    Route::post('/admin/sub-categories', 'Admin\AdminSubCategoriesController@submitCategory')->name('admin.new.subcategory.submit');
+
 
 
 });

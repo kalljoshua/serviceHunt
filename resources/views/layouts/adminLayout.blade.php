@@ -365,6 +365,19 @@
 <script src="/admin_inc/dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/admin_inc/dist/js/demo.js"></script>
+<!-- CK Editor -->
+<script src="/admin_inc/bower_components/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="/admin_inc/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  })
+</script>
 <!-- page script -->
 <script>
 $('div.alert').not('.alert-important').delay(2000).fadeOut(1500);
