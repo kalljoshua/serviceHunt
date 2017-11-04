@@ -17,6 +17,19 @@ class AdminServicesController extends Controller
       ->with('services',$services);
     }
 
+    function getService(Request $request,$id){
+      $service = Service::find($id);
+      return view('admin.admin_service_details')
+      ->with('service',$service);
+    }
+
+    function delete(Request $request,$id){
+      $service = Service::find($id);
+      return view('admin.admin_property_delete')
+      ->with('property',$property);
+    }
+
+
     public function suspended()
     {
       # code...
@@ -31,5 +44,19 @@ class AdminServicesController extends Controller
       $services = Service::where('active',0)->get();
       return view('admin.pending_services')
       ->with('services',$services);
+    }
+
+    public function approve($service_id)
+    {
+      # code...
+
+      $service = Service::find($service_id);
+      //return $service;
+      $service->active = 1;
+
+      if($service->save()){
+        flash('Service has been approved.')->success();
+        return redirect(route('admin.all.services'));
+      }
     }
 }

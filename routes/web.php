@@ -54,6 +54,7 @@ Route::get('/services/{id}/details','User\AdsController@adsDetails')->name('serv
 
 //user account
 Route::get('/user','User\UserProfileController@showUserProfile')->name('user.profile');
+Route::get('/user/package','User\UserPackageController@getPackages')->name('user.package');
 Route::get('/user/{userId}/myads','User\AdsController@myAds')->name('user.myads');
 Route::get('/user/{userId}/favourites','User\FavouritesController@myFavourites')->name('user.favourites');
 Route::get('/user/{userId}/mysearch','User\UserProfileController@mySearch')->name('user.search');
@@ -75,16 +76,14 @@ Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 //ajax routes
-Route::get('submission/getSubCategories/{id}', 'SubmissionController@getSubCategories');
-Route::get('loadsubcat/{id}','SubmissionController@secondMethod');
+Route::get('/ajax-subcat',function(){
 
-Route::get('ajax-category-subcategory',function(Request $request){
+ $cat_id = Input::get('cat_id');
 
- $cat_id = $request::input(['cat_id']);
-
- $subcategories=\App\SubCategory::where('category_id','=',$cat_id)->get();
+ $subcategories = App\SubCategory::where('category_id','=',$cat_id)->get();
 
  return Response::json($subcategories);
+ //echo json_encode($subcategories);
 
 });
 
@@ -114,6 +113,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/services', 'Admin\AdminServicesController@showAll')->name('admin.all.services');
     Route::get('/admin/suspended/services', 'Admin\AdminServicesController@suspended')->name('admin.suspended.services');
     Route::get('/admin/pending/services', 'Admin\AdminServicesController@pending')->name('admin.pending.services');
+    Route::get('/admin/{id}/approve', 'Admin\AdminServicesController@approve')->name('admin.approve.services');
+    Route::get('/admin/service/{id}','Admin\AdminServicesController@getService')->name('admin.service.show');
+    Route::get('/admin/service/{id}/delete','Admin\AdminServicesController@delete')->name('admin.service.delete');
 
     //types routes
     Route::get('/admin/types', 'Admin\AdminTypesController@showAll')->name('admin.all.types');
@@ -134,6 +136,22 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/all-Sub-categories', 'Admin\AdminSubCategoriesController@showAll')->name('admin.all.subcategories');
     Route::get('/admin/sub-categories', 'Admin\AdminSubCategoriesController@subcategoriesForm')->name('admin.new.subcategory');
     Route::post('/admin/sub-categories', 'Admin\AdminSubCategoriesController@submitCategory')->name('admin.new.subcategory.submit');
+
+    //Suspend property
+    Route::get('/admin/suspend-service','Admin\AdminSuspendServicesController@suspendService')->name('suspend.service');
+    Route::get('/admin/get-suspended-services','Admin\AdminSuspendServicesController@getSuspendedServices')->name('suspended.services');
+    Route::get('/admin/{id}/reactivate','Admin\AdminSuspendServicesController@reactivateService')->name('reactivate.services');
+
+    //Recommend property
+    Route::get('/admin/recommend-service','Admin\AdminRecommendServicesController@recommendService')->name('recommend.service');
+    Route::get('/admin/get-recommended-services','Admin\AdminRecommendServicesController@getRecommended')->name('recommended.services');
+
+    //Suspend agent
+    Route::get('/suspend-user','Admin\AdminSuspendUsersController@suspendUser')->name('suspend.user');
+    Route::get('/get-suspended-users','Admin\AdminSuspendUsersController@getSuspendedUsers')->name('suspended.users');
+
+    //package routes
+    Route::get('/admin/package','Admin\AdminPackageController@getPackages')->name('admin.package');
 
 
 

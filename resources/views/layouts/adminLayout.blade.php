@@ -328,6 +328,9 @@
 
   <!-- jQuery 3 -->
 <script src="/admin_inc/bower_components/jquery/dist/jquery.min.js"></script>
+<!--- my included scripts-->
+<script src="/js/suspend_service.js"></script>
+<script src="/js/recommend_service.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/admin_inc/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->

@@ -29,11 +29,11 @@
           <h2 class="title-2">Types and Categories</h2>
           <div class="add-tab-content form-group mb30 clearfix">
             <div class="add-tab-row push-padding-bottom">
-              <div class="row search-bar mb30 clearfix">
+              <div class="row">
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label for="property-type">Type</label>
-                    <select class="selectpicker dropdown-product"  title="Select" name="type_id" required>
+                    <select class="form-control dropdown-product" style="border-radius: 4px" title="Select" name="type_id" required>
                       @foreach($types as $type)
                       <option value="{{$type->id}}"  selected="selected" >{{$type->name}}</option>
                       @endforeach
@@ -43,8 +43,7 @@
                 <div class="col-sm-3">
                   <div class="form-group">
                     <label for="property-type">Categories</label>
-                    <select class="selectpicker" id="property-type" data-live-search="false"
-                    data-live-search-style="begins" title="Select" name="category_id" required>
+                    <select class="form-control" id="category" style="border-radius: 4px" name="category_id" required>
                     @foreach($categories as $categories)
                     <option value="{{$categories->id}}" selected="selected">{{$categories->name}}</option>
                     @endforeach
@@ -54,20 +53,19 @@
               <div class="col-sm-3">
                 <div class="form-group">
                   <label for="property-type">Sub Categories</label>
-                  <select class="selectpicker" id="property-type" data-live-search="false"
-                  data-live-search-style="begins" title="Select" name="sub_category_id" required>
-                  @foreach($sub_categories as $sub_categories)
-                  <option value="{{$sub_categories->id}}" selected="selected">{{$sub_categories->name}}</option>
-                  @endforeach
-                </select>
+                  <select  class="form-control" data-live-search="false"
+                  data-live-search-style="begins" title="Select" id="sub" style="border-radius: 4px" name="sub_category_id" required>
+
+                  </select>
+                  <span id="s"></span>
               </div>
             </div>
             @if(sizeof($companies)>0)
             <div class="col-sm-3">
               <div class="form-group">
                 <label for="property-type">Companies</label>
-                <select class="selectpicker" id="property-type" data-live-search="false"
-                data-live-search-style="begins" title="Select" name="sub_category_id" required>
+                <select class="form-control" id="property-type" data-live-search="false"
+                data-live-search-style="begins" title="Select" style="border-radius: 4px" name="sub_category_id" required>
                 @foreach($companies as $company)
                 <option value="{{$company->id}}" selected="selected">{{$company->name}}</option>
                 @endforeach
@@ -145,4 +143,5 @@
 </div>
 </div>
 </section>
+
 @endsection

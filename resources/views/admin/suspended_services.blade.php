@@ -51,7 +51,7 @@
                   <td> {{$service->sub_category->name}}</td>
                   <td>
                     <div class="timeline-footer">
-                      <a class="btn btn-info btn-xs">Re-activate</a>
+                      <a href="/admin/{{$service->id}}/reactivate" class="btn btn-info btn-xs">Re-activate</a>
                     </div>
                   </td>
                 </tr>

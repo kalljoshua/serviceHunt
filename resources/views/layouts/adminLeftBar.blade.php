@@ -89,9 +89,17 @@
                   <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Suspended</a></li>
               </ul>
           </li>
+          <li class="treeview">
+              <a href="/admin/package">
+                  <i class="fa fa-suitcase"></i>
+                  <span>Packages</span>
+                  <span class="pull-right-container">
+            </span>
+              </a>
+          </li>
 
         <li>
-          <a href="pages/mailbox/mailbox.html">
+          <a href="#">
             <i class="fa fa-envelope text-purple"></i> <span>Mailbox</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-yellow">12</small>

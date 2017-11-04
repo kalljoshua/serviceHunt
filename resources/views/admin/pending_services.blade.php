@@ -51,7 +51,7 @@
                   <td> {{$service->sub_category->name}}</td>
                   <td>
                     <div class="timeline-footer">
-                      <a class="btn btn-info btn-xs">Approve</a>
+                      <a href="/admin/{{$service->id}}/approve" class="btn btn-info btn-xs">Approve</a>
                     </div>
                   </td>
                 </tr>

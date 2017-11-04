@@ -9,6 +9,9 @@
               <li class="active">
                 <a href="{{route('user.profile')}}"><i class="fa fa-home"></i> Personal Home</a>
               </li>
+              <li>
+                <a href="{{route('user.package')}}"><i class="fa fa-briefcase"></i> Activate a Package</a>
+              </li>
             </ul>
           </div>
         </div>

@@ -16,7 +16,7 @@ class HomeController extends Controller
     //
     public function index()
     {
-      $categories = SubCategory::all();
+      $categories = Category::all();
       $searches = SavedSearch::orderBy('created_at','DESC')->take(6)->get();
       $featured_services = Service::where('featured',1)->where('active',1)->orderBy('created_at','DESC')->get();
       $most_viewed_services = Service::where('active',1)->orderBy('views','DESC')->get();

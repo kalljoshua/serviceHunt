@@ -40,6 +40,7 @@
   <!-- Bootstrap Select -->
   <link rel="stylesheet" href="/client_inc/assets/css/bootstrap-select.min.css">
 
+
 </head>
 <body>
   <!-- Header Section Start -->
@@ -142,6 +143,39 @@
 
       <!-- Main JS  -->
       <script type="text/javascript" src="/client_inc/assets/js/jquery-min.js"></script>
+      <script>
+      $( document ).ready(function() {
+          //console.log( "ready!" );
+          //$('#s').append('howdy de');
+          //$('#subcategory').append('<option>Software engineer</option>');
+          $('#category').on('change',function(e){
+            //console.log(e);
+
+            var cat_id = e.target.value;
+            //ajax
+            $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+              //success data
+              //$('#subcategory').empty;
+
+              for(var i = 0;i<data.length;i++){
+                //console.log(data[i].name);
+                var el = document.getElementById('sub');
+                el.innerHTML = '<option value="'+data[i].id+'">'+data[i].name+'</option>';
+                //$('#subcategory').append('<option value="'+data[i].id+'">'+data[i].name+'</option>');
+              }
+
+              /*$.each(data,function(add_new_service, subcatObj){
+
+                //console.log(subcatObj.name);
+
+                //console.log(data.toString());
+
+                $('#subcategory').append('<option value="'+subcatObj.id+'">'+subcatObj.name+'</option>');
+              });*/
+            });
+          });
+      });
+      </script>      
       <script type="text/javascript" src="/client_inc/assets/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="/client_inc/assets/js/material.min.js"></script>
       <script type="text/javascript" src="/client_inc/assets/js/material-kit.js"></script>
@@ -154,6 +188,29 @@
       <script type="text/javascript" src="/client_inc/assets/js/jasny-bootstrap.min.js"></script>
       <script src="/client_inc/assets/js/bootstrap-select.min.js"></script>
       <script language="javascript" type="text/javascript" src="/js/starrr.js"></script>
+      <script>
+        //$('#subcategory').append('<option value="'+subcatObj.id+'">'+subcatObj.name+'</option>');
+
+
+
+        /*$('#category').on('change',function(e){
+          console.log(e);
+
+          var cat_id = e.target.value;
+          //ajax
+          $.get('/ajax-subcat?cat_id='+cat_id,function(data){
+            //success data
+            $('#subcategory').empty;
+            $.each(data,function(add_new_service, subcatObj){
+
+              console.log($('#subcategory'));
+
+              $('#subcategory').append('<option value="'+subcatObj.id+'">'+subcatObj.name+'</option>');
+            });
+          });
+        });*/
+
+      </script>
       <script>
         $('div.alert').not('.alert-important').delay(2000).fadeOut(1500);
 
